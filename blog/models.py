@@ -32,6 +32,7 @@ class Comment(models.Model):
 
 
 class Post(models.Model):
+    slug = models.SlugField(unique=True)
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.PROTECT)
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(auto_now=True)
