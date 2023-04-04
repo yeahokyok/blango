@@ -49,6 +49,7 @@ class Dev(Configuration):
         'django.contrib.sites',
         'django.contrib.staticfiles',
         'rest_framework',
+        'rest_framework.authtoken',
         'crispy_forms',
         'crispy_bootstrap5',
         "debug_toolbar",
@@ -214,7 +215,13 @@ class Dev(Configuration):
 
     REGISTRATION_OPEN = True
 
-
+    REST_FRAMEWORK = {
+        "DEFAULT_AUTHENTICATION_CLASSES": [
+            "rest_framework.authentication.BasicAuthentication",
+            "rest_framework.authentication.SessionAuthentication",
+            "rest_framework.authentication.TokenAuthentication",
+        ]
+    }
 
 
 class Prod(Dev):
