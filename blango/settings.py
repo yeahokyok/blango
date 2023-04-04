@@ -48,6 +48,7 @@ class Dev(Configuration):
         'django.contrib.messages',
         'django.contrib.sites',
         'django.contrib.staticfiles',
+        'rest_framework',
         'crispy_forms',
         'crispy_bootstrap5',
         "debug_toolbar",
