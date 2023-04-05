@@ -53,6 +53,7 @@ class Dev(Configuration):
         'crispy_forms',
         'crispy_bootstrap5',
         "debug_toolbar",
+        'drf_yasg',
         'blango_auth',
         'blog',
         "allauth",
@@ -224,6 +225,13 @@ class Dev(Configuration):
         "DEFAULT_PERMISSION_CLASSES": [
             "rest_framework.permissions.IsAuthenticatedOrReadOnly"
         ],
+    }
+
+    SWAGGER_SETTINGS = {
+        "SECURITY_DEFINITIONS": {
+            "Token": {"type": "apiKey", "name": "Authorization", "in": "header"},
+            "Basic": {"type": "basic"},
+        }
     }
 
 
