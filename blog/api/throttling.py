@@ -1,8 +1,8 @@
 import random
-from rest_framework.throttling import AnonRateThrottle, UserRateThrottle
+from rest_framework.throttling import AnonRateThrottle, UserRateThrottle, BaseThrottle
 
 
-class RandomRateThrottle(throttling.BaseThrottle):
+class RandomRateThrottle(BaseThrottle):
     def allow_request(self, request, view):
         return random.randint(1, 10) != 1
 
