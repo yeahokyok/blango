@@ -9,6 +9,10 @@ from blog.forms import CommentForm
 logger = logging.getLogger(__name__)
 
 
+def post_table(request):
+    return render(request, "blog/post-table.html")
+
+    
 def get_ip(request):
   from django.http import HttpResponse
   return HttpResponse(request.META['REMOTE_ADDR'])
