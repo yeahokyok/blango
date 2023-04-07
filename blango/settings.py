@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
+from datetime import timedelta
 import os
 from pathlib import Path
 from configurations import Configuration, values
@@ -221,6 +222,7 @@ class Dev(Configuration):
             "rest_framework.authentication.BasicAuthentication",
             "rest_framework.authentication.SessionAuthentication",
             "rest_framework.authentication.TokenAuthentication",
+            "rest_framework_simplejwt.authentication.JWTAuthentication"
         ],
         "DEFAULT_PERMISSION_CLASSES": [
             "rest_framework.permissions.IsAuthenticatedOrReadOnly"
@@ -237,6 +239,11 @@ class Dev(Configuration):
             "user_sustained": "5000/day",
             "user_burst": "100/minute",
         },
+    }
+
+    SIMPLE_JWT = {
+        "ACCESS_TOKEN_LIFETIME": timedelta(days=1),
+        "REFRESH_TOKEN_LIFETIME": timedelta(days=7),
     }
 
     SWAGGER_SETTINGS = {
