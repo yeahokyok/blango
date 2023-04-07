@@ -49,6 +49,7 @@ class Dev(Configuration):
         'django.contrib.messages',
         'django.contrib.sites',
         'django.contrib.staticfiles',
+        'versatileimagefield',
         'rest_framework',
         'rest_framework.authtoken',
         'crispy_forms',
@@ -252,6 +253,9 @@ class Dev(Configuration):
             "Basic": {"type": "basic"},
         }
     }
+
+    MEDIA_ROOT = BASE_DIR / "media"
+    MEDIA_URL = "/media/"
 
 
 class Prod(Dev):
